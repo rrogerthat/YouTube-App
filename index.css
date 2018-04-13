@@ -1,0 +1,9 @@
+body {
+  margin-left: 15px;
+}
+
+.js-search-results img {
+  display: inline-block;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
