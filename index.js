@@ -18,6 +18,8 @@ function getDataFromApi(searchTerm, callback) {
 function displayResultsToPage(data) {
   //display returned search results to HTML page & link to each video
   const results = []; //use data.map(renderResult) is img template
+  const totalVids = data.pageInfo.resultsPerPage; //number of search results
+  
   for (i = 0; i < data.items.length; i++) {
     
     const thumbnailPic = data.items[i].snippet.thumbnails.medium.url;
@@ -25,8 +27,10 @@ function displayResultsToPage(data) {
     
     results.push(`<a href="https://www.youtube.com/watch?v=${videoLink}" target="_blank"><img src="${thumbnailPic}" alt="thumbnail"></a>`);
   }
-  console.log(results); //to verify it works
+  console.log(data); //show JSON data
+
   $(".js-search-results").html(results);
+  $("h2").html(`Results: ${totalVids}`);
 }
 
 function beginSearch() {
